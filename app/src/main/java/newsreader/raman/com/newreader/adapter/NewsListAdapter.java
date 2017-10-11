@@ -1,8 +1,10 @@
 package newsreader.raman.com.newreader.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,12 +61,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         return feedItems.size();
     }
 
-    class NewsHolder extends RecyclerView.ViewHolder {
+    class NewsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private View view;
         private ImageView newsImageView;
         private TextView newsTitleTextView;
         private TextView pubDateTextView;
+        private FeedItem feedItem;
 
         NewsHolder(View itemView) {
             super(itemView);
@@ -75,7 +78,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         }
 
         void bindViews(FeedItem item) {
-
+            this.feedItem = item;
             try {
                 GetFeedImage task = new GetFeedImage();
                 Bitmap bitmap = task.execute(item.getImage()).get();
@@ -87,6 +90,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
                 SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
                 String format = sdf.format(item.getPublishDate());
                 pubDateTextView.setText(format);
+
+                this.view.setOnClickListener(this);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -94,6 +99,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
             }
 
         }
-    }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(feedItem.getLink()));
+            context.startActivity(intent);
+        }
+
+    } // end NewsHolder
 
 }
