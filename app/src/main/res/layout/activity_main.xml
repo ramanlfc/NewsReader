@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context="newsreader.raman.com.newreader.activities.MainActivity">
 
-
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/news_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>
