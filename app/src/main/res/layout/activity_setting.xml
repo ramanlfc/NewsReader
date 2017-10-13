@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="newsreader.raman.com.newreader.activities.SettingActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Choose a default"
+        android:layout_margin="8dp"
+        android:textSize="24sp" />
+
+    <RadioGroup
+        android:id="@+id/choice_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:gravity="center_horizontal">
+
+        <RadioButton
+            android:id="@+id/choice_india"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="India"
+            android:textSize="24sp" />
+
+
+        <RadioButton
+            android:id="@+id/choice_world"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="World"
+            android:textSize="24sp" />
+
+
+        <RadioButton
+            android:id="@+id/choice_sport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Sport"
+            android:textSize="24sp" />
+
+
+        <RadioButton
+            android:id="@+id/choice_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Business"
+            android:textSize="24sp" />
+
+    </RadioGroup>
+
+
+</LinearLayout>
